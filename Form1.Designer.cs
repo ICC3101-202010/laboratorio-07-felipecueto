@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Calculadora));
             this.MainPanel = new System.Windows.Forms.Panel();
             this.HistoryPanel = new System.Windows.Forms.Panel();
+            this.DeleteHistoryButton = new System.Windows.Forms.Button();
+            this.TextHistorial = new System.Windows.Forms.Label();
             this.HistoryLabel = new System.Windows.Forms.Label();
             this.OperactionPanel = new System.Windows.Forms.Panel();
             this.OutputLabel = new System.Windows.Forms.Label();
@@ -55,8 +57,6 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.Button1 = new System.Windows.Forms.Button();
-            this.TextHistorial = new System.Windows.Forms.Label();
-            this.DeleteHistoryButton = new System.Windows.Forms.Button();
             this.MainPanel.SuspendLayout();
             this.HistoryPanel.SuspendLayout();
             this.OperactionPanel.SuspendLayout();
@@ -107,6 +107,26 @@
             this.HistoryPanel.Size = new System.Drawing.Size(276, 392);
             this.HistoryPanel.TabIndex = 21;
             this.HistoryPanel.Visible = false;
+            // 
+            // DeleteHistoryButton
+            // 
+            this.DeleteHistoryButton.Location = new System.Drawing.Point(173, 24);
+            this.DeleteHistoryButton.Name = "DeleteHistoryButton";
+            this.DeleteHistoryButton.Size = new System.Drawing.Size(76, 29);
+            this.DeleteHistoryButton.TabIndex = 2;
+            this.DeleteHistoryButton.Text = "Borrar";
+            this.DeleteHistoryButton.UseVisualStyleBackColor = true;
+            this.DeleteHistoryButton.Click += new System.EventHandler(this.DeleteHistoryButton_Click);
+            // 
+            // TextHistorial
+            // 
+            this.TextHistorial.AutoSize = true;
+            this.TextHistorial.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextHistorial.Location = new System.Drawing.Point(26, 24);
+            this.TextHistorial.Name = "TextHistorial";
+            this.TextHistorial.Size = new System.Drawing.Size(110, 29);
+            this.TextHistorial.TabIndex = 1;
+            this.TextHistorial.Text = "Historial";
             // 
             // HistoryLabel
             // 
@@ -247,7 +267,7 @@
             this.Ans.TabIndex = 11;
             this.Ans.Text = "Ans";
             this.Ans.UseVisualStyleBackColor = true;
-            this.Ans.Click += new System.EventHandler(this.Ans_Click);
+            this.Ans.Click += new System.EventHandler(this.Button_Click);
             // 
             // Point
             // 
@@ -359,26 +379,6 @@
             this.Button1.Text = "1";
             this.Button1.UseVisualStyleBackColor = true;
             this.Button1.Click += new System.EventHandler(this.Button_Click);
-            // 
-            // TextHistorial
-            // 
-            this.TextHistorial.AutoSize = true;
-            this.TextHistorial.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextHistorial.Location = new System.Drawing.Point(26, 24);
-            this.TextHistorial.Name = "TextHistorial";
-            this.TextHistorial.Size = new System.Drawing.Size(110, 29);
-            this.TextHistorial.TabIndex = 1;
-            this.TextHistorial.Text = "Historial";
-            // 
-            // DeleteHistoryButton
-            // 
-            this.DeleteHistoryButton.Location = new System.Drawing.Point(173, 24);
-            this.DeleteHistoryButton.Name = "DeleteHistoryButton";
-            this.DeleteHistoryButton.Size = new System.Drawing.Size(76, 29);
-            this.DeleteHistoryButton.TabIndex = 2;
-            this.DeleteHistoryButton.Text = "Borrar";
-            this.DeleteHistoryButton.UseVisualStyleBackColor = true;
-            this.DeleteHistoryButton.Click += new System.EventHandler(this.DeleteHistoryButton_Click);
             // 
             // Calculadora
             // 

@@ -17,7 +17,6 @@ namespace Lab7
             InitializeComponent();
         }
 
-        List<string> history = new List<string>();
         double result = 0;
         string operacion = "";
         string buttonNUM = "";
@@ -26,13 +25,13 @@ namespace Lab7
         private void Button_Click(object sender, EventArgs e)
         {
    
-                if ((OutputTextbox.Text == "0")|| (checkOperation))
+                if ((OutputTextbox.Text == "0")|| (checkOperation)|| OutputTextbox.Text == "Math Error")
                 {
                     OutputTextbox.ResetText();
                 }
 
                 Button button = (Button)sender;
-            buttonNUM = button.Text;
+                buttonNUM = button.Text;
                 checkOperation = false;
 
                 if (button.Text == ".")
@@ -41,6 +40,10 @@ namespace Lab7
                     {
                       OutputTextbox.Text = OutputTextbox.Text + button.Text;
                     }
+                }
+                if (button.Text == "Ans")
+                {
+                OutputTextbox.Text = OutputTextbox.Text + ans;
                 }
                 else
                 {
@@ -62,7 +65,14 @@ namespace Lab7
 
                 Button button = (Button)sender;
                 operacion = button.Text;
-                result = double.Parse(OutputTextbox.Text);
+                try
+                {
+                    result = double.Parse(OutputTextbox.Text);
+                }
+                catch
+                {
+
+                }
                 checkOperation = true;
                 OutputLabel.Text = result + " " + operacion;
                
@@ -89,18 +99,12 @@ namespace Lab7
             OutputTextbox.Text = "0";
             result = 0;
             OutputLabel.ResetText();
+            ans = "";
         }
-
-        private void Ans_Click(object sender, EventArgs e)
+        private void History_click(TextBox opl,string res)
         {
-            OutputTextbox.Text = ans;
+            HistoryLabel.Text = HistoryLabel.Text + res +""+ operacion +"" + buttonNUM + " = " +opl.Text+"\n";
         }
-
-        private void History_click(TextBox opl)
-        {
-            HistoryLabel.Text = HistoryLabel.Text + result +""+ operacion +"" + buttonNUM + " = " +opl.Text+"\n";
-        }
-
         private void IGUAL_Click(object sender, EventArgs e)
         {
             switch (operacion)
@@ -110,8 +114,11 @@ namespace Lab7
                     {
 
                         OutputTextbox.Text = (result * double.Parse(OutputTextbox.Text)).ToString();
+                        History_click(OutputTextbox,result.ToString());
                         ans = OutputTextbox.Text;
-                        History_click(OutputTextbox);
+                        result = Convert.ToDouble(ans);
+                        AnsLebel(ans);
+                        OutputTextbox.ResetText();
                         break;
                     }
                     catch
@@ -125,8 +132,11 @@ namespace Lab7
                     {
 
                         OutputTextbox.Text = (result - double.Parse(OutputTextbox.Text)).ToString();
+                        History_click(OutputTextbox, result.ToString());
                         ans = OutputTextbox.Text;
-                        History_click(OutputTextbox);
+                        result = Convert.ToDouble(ans);
+                        AnsLebel(ans);
+                        OutputTextbox.ResetText();
                         break;
                     }
                     catch
@@ -138,8 +148,11 @@ namespace Lab7
                     {
 
                         OutputTextbox.Text = (result + double.Parse(OutputTextbox.Text)).ToString();
+                        History_click(OutputTextbox, result.ToString());
                         ans = OutputTextbox.Text;
-                        History_click(OutputTextbox);
+                        result = Convert.ToDouble(ans);
+                        AnsLebel(ans);
+                        OutputTextbox.ResetText();
                         break;
                     }
                     catch 
@@ -149,9 +162,18 @@ namespace Lab7
                 case " ÷":
                     try
                     {
+                        if (OutputTextbox.Text =="0")
+                        {
+                            OutputTextbox.Text = "Math Error";
+                            OutputLabel.ResetText();
+                            break;
+                        }
                         OutputTextbox.Text = (result / double.Parse(OutputTextbox.Text)).ToString();
+                        History_click(OutputTextbox, result.ToString());
                         ans = OutputTextbox.Text;
-                        History_click(OutputTextbox);
+                        result = Convert.ToDouble(ans);
+                        AnsLebel(ans);
+                        OutputTextbox.ResetText();
                         break;
 
                     }
@@ -169,6 +191,10 @@ namespace Lab7
 
 
         }
+        private void AnsLebel(string anss)
+        {
+            OutputLabel.Text = anss;
+        }
 
         private void HistorialButton_Click(object sender, EventArgs e)
         {
@@ -181,7 +207,6 @@ namespace Lab7
                 HistoryPanel.Visible = true;
             }
         }
-
         private void DeleteHistoryButton_Click(object sender, EventArgs e)
         {
             HistoryLabel.ResetText();
