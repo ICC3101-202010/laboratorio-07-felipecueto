@@ -20,6 +20,7 @@ namespace Lab7
         List<string> history = new List<string>();
         double result = 0;
         string operacion = "";
+        string buttonNUM = "";
         bool checkOperation = false;
         string ans = "";
         private void Button_Click(object sender, EventArgs e)
@@ -31,6 +32,7 @@ namespace Lab7
                 }
 
                 Button button = (Button)sender;
+            buttonNUM = button.Text;
                 checkOperation = false;
 
                 if (button.Text == ".")
@@ -71,8 +73,15 @@ namespace Lab7
         private void DEL_Click(object sender, EventArgs e)
         {
             string del = OutputTextbox.Text;
-            del=del.Remove(del.Length - 1);
-            OutputTextbox.Text = del;
+            try
+            {
+                del = del.Remove(del.Length - 1);
+                OutputTextbox.Text = del;
+            }
+            catch
+            {
+
+            }
         }
 
         private void AC_Click(object sender, EventArgs e)
@@ -89,7 +98,7 @@ namespace Lab7
 
         private void History_click(TextBox opl)
         {
-            HistoryLabel.Text = HistoryLabel.Text +" "+ opl.Text+"\n";
+            HistoryLabel.Text = HistoryLabel.Text + result +""+ operacion +"" + buttonNUM + " = " +opl.Text+"\n";
         }
 
         private void IGUAL_Click(object sender, EventArgs e)
@@ -97,23 +106,59 @@ namespace Lab7
             switch (operacion)
             {
                 case "X":
-                    OutputTextbox.Text = (result * double.Parse(OutputTextbox.Text)).ToString();
-                    ans = OutputTextbox.Text;
-                    History_click(OutputTextbox);
-                    break;
-                case "-":
-                    OutputTextbox.Text = (result - double.Parse(OutputTextbox.Text)).ToString();
-                    ans = OutputTextbox.Text;
-                    break;
-                case "+":
-                    OutputTextbox.Text = (result + double.Parse(OutputTextbox.Text)).ToString();
-                    ans = OutputTextbox.Text;
-                    break;
+                    try
+                    {
 
+                        OutputTextbox.Text = (result * double.Parse(OutputTextbox.Text)).ToString();
+                        ans = OutputTextbox.Text;
+                        History_click(OutputTextbox);
+                        break;
+                    }
+                    catch
+                    {
+                        break;
+                    }
+            
+                    
+                case "-":
+                    try
+                    {
+
+                        OutputTextbox.Text = (result - double.Parse(OutputTextbox.Text)).ToString();
+                        ans = OutputTextbox.Text;
+                        History_click(OutputTextbox);
+                        break;
+                    }
+                    catch
+                    {
+                        break;
+                    }
+                case "+":
+                    try
+                    {
+
+                        OutputTextbox.Text = (result + double.Parse(OutputTextbox.Text)).ToString();
+                        ans = OutputTextbox.Text;
+                        History_click(OutputTextbox);
+                        break;
+                    }
+                    catch 
+                    {
+                        break;
+                    }
                 case " ÷":
-                    OutputTextbox.Text = (result / double.Parse(OutputTextbox.Text)).ToString();
-                    ans = OutputTextbox.Text;
-                    break;
+                    try
+                    {
+                        OutputTextbox.Text = (result / double.Parse(OutputTextbox.Text)).ToString();
+                        ans = OutputTextbox.Text;
+                        History_click(OutputTextbox);
+                        break;
+
+                    }
+                    catch
+                    {
+                        break;
+                    }
                 default:
                     break;
 

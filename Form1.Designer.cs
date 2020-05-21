@@ -33,7 +33,6 @@
             this.HistoryPanel = new System.Windows.Forms.Panel();
             this.HistoryLabel = new System.Windows.Forms.Label();
             this.OperactionPanel = new System.Windows.Forms.Panel();
-            this.SyntaxErrorLabel = new System.Windows.Forms.Label();
             this.OutputLabel = new System.Windows.Forms.Label();
             this.OutputTextbox = new System.Windows.Forms.TextBox();
             this.IGUAL = new System.Windows.Forms.Button();
@@ -111,34 +110,22 @@
             // 
             // HistoryLabel
             // 
+            this.HistoryLabel.AutoSize = true;
             this.HistoryLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HistoryLabel.Location = new System.Drawing.Point(27, 68);
             this.HistoryLabel.Name = "HistoryLabel";
-            this.HistoryLabel.Size = new System.Drawing.Size(222, 302);
+            this.HistoryLabel.Size = new System.Drawing.Size(0, 25);
             this.HistoryLabel.TabIndex = 0;
             // 
             // OperactionPanel
             // 
             this.OperactionPanel.BackColor = System.Drawing.Color.LightGray;
-            this.OperactionPanel.Controls.Add(this.SyntaxErrorLabel);
             this.OperactionPanel.Controls.Add(this.OutputLabel);
             this.OperactionPanel.Controls.Add(this.OutputTextbox);
             this.OperactionPanel.Location = new System.Drawing.Point(62, 23);
             this.OperactionPanel.Name = "OperactionPanel";
             this.OperactionPanel.Size = new System.Drawing.Size(425, 163);
             this.OperactionPanel.TabIndex = 20;
-            // 
-            // SyntaxErrorLabel
-            // 
-            this.SyntaxErrorLabel.AutoSize = true;
-            this.SyntaxErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SyntaxErrorLabel.ForeColor = System.Drawing.Color.Red;
-            this.SyntaxErrorLabel.Location = new System.Drawing.Point(191, 117);
-            this.SyntaxErrorLabel.Name = "SyntaxErrorLabel";
-            this.SyntaxErrorLabel.Size = new System.Drawing.Size(217, 40);
-            this.SyntaxErrorLabel.TabIndex = 2;
-            this.SyntaxErrorLabel.Text = "Syntax Error";
-            this.SyntaxErrorLabel.Visible = false;
             // 
             // OutputLabel
             // 
@@ -442,7 +429,6 @@
         private System.Windows.Forms.Panel OperactionPanel;
         private System.Windows.Forms.Label OutputLabel;
         private System.Windows.Forms.TextBox OutputTextbox;
-        private System.Windows.Forms.Label SyntaxErrorLabel;
         private System.Windows.Forms.Label HistoryLabel;
         private System.Windows.Forms.Button DeleteHistoryButton;
         private System.Windows.Forms.Label TextHistorial;
