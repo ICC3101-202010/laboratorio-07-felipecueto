@@ -31,31 +31,33 @@ namespace Lab7
                 }
 
                 Button button = (Button)sender;
-                buttonNUM = button.Text;
+                buttonNUM = buttonNUM + button.Text;
                 checkOperation = false;
+                if (button.Text == "Ans")
+                {
+                    OutputTextbox.Text = OutputTextbox.Text + ans;
+                }
 
                 if (button.Text == ".")
                 {
-                    if (!OutputTextbox.Text.Contains("."))
-                    {
-                      OutputTextbox.Text = OutputTextbox.Text + button.Text;
-                    }
+                        if (!OutputTextbox.Text.Contains("."))
+                        {
+                          OutputTextbox.Text = OutputTextbox.Text + button.Text;
+                        }
                 }
-                if (button.Text == "Ans")
-                {
-                OutputTextbox.Text = OutputTextbox.Text + ans;
-                }
+                
                 else
                 {
-                     OutputTextbox.Text = OutputTextbox.Text + button.Text;
-                }
- 
-
-            
+                    if (button.Text != "Ans")
+                    {
+                        OutputTextbox.Text = OutputTextbox.Text + button.Text;
+                    }
+                }            
         }
 
         private void Operation_Button(object sender, EventArgs e)
         {
+            buttonNUM = "";
             if (!checkOperation)
             {
                 if (OutputTextbox.Text == "0")
@@ -119,6 +121,7 @@ namespace Lab7
                         result = Convert.ToDouble(ans);
                         AnsLebel(ans);
                         OutputTextbox.ResetText();
+                        buttonNUM = "";
                         break;
                     }
                     catch
@@ -137,6 +140,7 @@ namespace Lab7
                         result = Convert.ToDouble(ans);
                         AnsLebel(ans);
                         OutputTextbox.ResetText();
+                         buttonNUM = "";
                         break;
                     }
                     catch
@@ -153,6 +157,7 @@ namespace Lab7
                         result = Convert.ToDouble(ans);
                         AnsLebel(ans);
                         OutputTextbox.ResetText();
+                        buttonNUM = "";
                         break;
                     }
                     catch 
@@ -174,6 +179,7 @@ namespace Lab7
                         result = Convert.ToDouble(ans);
                         AnsLebel(ans);
                         OutputTextbox.ResetText();
+                        buttonNUM = "";
                         break;
 
                     }
